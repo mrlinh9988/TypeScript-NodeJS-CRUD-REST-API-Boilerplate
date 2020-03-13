@@ -8,8 +8,6 @@ stages:
 
 step-develop:
   stage: test
-  before_script:
-    - export DYNAMIC_ENV_VAR=DEVELOP
   only:
     - develop
   tags:
