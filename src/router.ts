@@ -14,7 +14,7 @@ class Router {
 
         router.get('/', (req: express.Request, res: express.Response) => {
             res.json({
-                message: `Nothing to see here, [url]/cats instead.`
+                message: `Hello this is Linh dep trai`
             })
         })
 
