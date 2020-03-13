@@ -8,25 +8,21 @@ stages:
 
 step-develop:
   stage: test
-  before_script:
-    - export DYNAMIC_ENV_VAR=DEVELOP
   only:
     - develop
   tags:
     - develop
   script:
-    - echo running tests in $DYNAMIC_ENV_VAR
+    - echo running tests in develop
 
 step-uat:
   stage: deploy
-  before_script:
-    - export DYNAMIC_ENV_VAR=UAT
   only:
     - uat
   tags:
     - uat
   script:
-    - echo setting up env $DYNAMIC_ENV_VAR
+    - echo setting up env uat
     - sudo apt-get install -y python-pip
     - sudo pip install docker-compose
     - sudo docker image prune -f
@@ -35,14 +31,12 @@ step-uat:
 
 step-deploy-staging:
   stage: deploy
-  before_script:
-    - export DYNAMIC_ENV_VAR=STAGING
   only:
     - staging
   tags:
     - staging
   script:
-    - echo setting up env $DYNAMIC_ENV_VAR
+    - echo setting up env staging
     - sudo apt-get install -y python-pip
     - sudo pip install docker-compose
     - sudo docker image prune -f
@@ -51,14 +45,12 @@ step-deploy-staging:
 
 step-deploy-production:
   stage: deploy
-  before_script:
-    - export DYNAMIC_ENV_VAR=PRODUCTION
   only:
     - production
   tags:
     - production
   script:
-    - echo setting up env $DYNAMIC_ENV_VAR
+    - echo setting up env production
     - sudo apt-get install -y python-pip
     - sudo pip install docker-compose
     - sudo docker image prune -f
